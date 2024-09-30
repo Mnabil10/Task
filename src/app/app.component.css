@@ -1,0 +1,11 @@
+/* styles.css */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+/* Custom global styles */
+body {
+  background-color: #f8f9fa;
+}
+
+h2 {
+  margin-bottom: 20px;
+}

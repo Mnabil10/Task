@@ -1,0 +1,29 @@
+<!-- src/app/components/task-list/task-list.component.html -->
+<div class="container">
+    <h2>Task List</h2>
+    
+    <!-- Filter Buttons -->
+    <div class="filter-buttons">
+      <button (click)="setFilter('all')" class="btn btn-primary">All Tasks</button>
+      <button (click)="setFilter('completed')" class="btn btn-success">Completed Tasks</button>
+      <button (click)="setFilter('pending')" class="btn btn-warning">Pending Tasks</button>
+    </div>
+  
+    <div class="row">
+      <div *ngFor="let task of filteredTasks; let i = index" class="col-md-4">
+        <div class="card task-card">
+          <div class="card-body">
+            <h5 class="card-title">{{ task.title }}</h5>
+            <p class="card-text">{{ task.description }}</p>
+            <p class="card-text">
+              <small class="text-muted">Created on: {{ task.createdDate | date }}</small>
+            </p>
+            <p class="card-text">Status: {{ task.completed ? 'Completed' : 'Pending' }}</p>
+            <button (click)="deleteTask(i)" class="btn btn-danger">Delete</button>
+            <a [routerLink]="['/edit', i]" class="btn btn-info">Edit</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
